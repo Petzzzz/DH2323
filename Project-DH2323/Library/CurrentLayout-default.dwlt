@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 34
+  controlID: 134
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -219,7 +219,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 35
+  controlID: 83
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -244,7 +244,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 36
+  controlID: 57
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -338,20 +338,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Material/bow-and-arrow-rigged-free-download/source/43874b5e088d444c98f88d20276f961c.fbx/Bow
+    - Assets/Scripts
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Material/bow-and-arrow-rigged-free-download/source/43874b5e088d444c98f88d20276f961c.fbx/Bow
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\peter\Dokument\DH2323\DH2323\Project-DH2323
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 74370000
-    m_LastClickedID: 14196
-    m_ExpandedIDs: 00000000be330000c2330000ca33000032340000343400004a3400006e370000703700007237000000ca9a3b
+    scrollPos: {x: 0, y: 26}
+    m_SelectedIDs: 0e350000
+    m_LastClickedID: 13582
+    m_ExpandedIDs: 0000000054340000643400006c3400006e3400007034000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -379,7 +379,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000be330000
+    m_ExpandedIDs: 0000000054340000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -502,23 +502,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: cec5ffff
-      m_LastClickedID: -14898
-      m_ExpandedIDs: 90d8ffffacd8ffff72e3ffff44efffff6eefffffbcefffff80f2ffffaaf2ffff42f6ffff50f6ffff9cf8ffff62faffff6afbffff
+      m_SelectedIDs: 12350000
+      m_LastClickedID: 0
+      m_ExpandedIDs: 5af8ffff62f8ffff66f8ffff74f8ffff86f8ffff92f8ffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Bow and Arrow (1)
-        m_OriginalName: Bow and Arrow (1)
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -7934
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 4}
       m_SearchString: 
@@ -557,7 +557,7 @@ MonoBehaviour:
   m_ShowContextualTools: 0
   m_WindowGUID: 5315c7295324b9d468eeb32d63849139
   m_Gizmos: 1
-  m_SceneIsLit: 1
+  m_SceneIsLit: 0
   m_SceneLighting: 1
   m_2DMode: 0
   m_isRotationLocked: 0
@@ -579,7 +579,7 @@ MonoBehaviour:
   m_SceneViewState:
     showFog: 1
     showMaterialUpdate: 0
-    showSkybox: 1
+    showSkybox: 0
     showFlares: 1
     showImageEffects: 1
     showParticleSystems: 1
@@ -616,7 +616,7 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0.10026109, y: 0.77394783, z: -0.12673442, w: 0.6122834}
   m_Size:
-    m_Target: 1.5042847
+    m_Target: 0.60428464
     speed: 2
     m_Value: 0.60428464
   m_Ortho:
