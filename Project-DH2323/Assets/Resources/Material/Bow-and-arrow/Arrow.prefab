@@ -88,13 +88,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4088599669769453746}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fcab2c5fe2896dc4386cb5c1d314f425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_mass: 0.00048
-  m_diameter: 0.52500004
+  m_dim: 0.0051200003
   m_dragCoeff: 1.56
 --- !u!64 &2918660126419681471
 MeshCollider:
