@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
-    // Start is called before the first frame update
+   /* // Start is called before the first frame update
     [SerializeField]
     GameObject prefab;
     [SerializeField]
@@ -56,6 +56,6 @@ public class Shoot : MonoBehaviour
             SpanArrow();
         }
     }
-
+*/
 }
 
