@@ -13,8 +13,8 @@ public class BowReleaseScript : MonoBehaviour
     public Rigidbody a_Rigidbody;
     public LineRenderer stringUp; 
     public LineRenderer stringDown;
-    private float rot_dir = 1;
-    private float string_y = 0;
+    public Vector3 m_windDirection;
+    public float m_windStrength;
     public float f_stretch = 0;
     public float stiffness = 0;
     public float w_in;
@@ -24,7 +24,7 @@ public class BowReleaseScript : MonoBehaviour
     public float v_bow = 0.5f;
     public float rot_bow = 0f;
     public float m_arrow = 1f;
-    public float m_bow = 1f;
+    public float m_bow = 4.93f;
     public Vector3 pos_original;
     public float pos_1;
     public float pos_2 = 0f;
@@ -44,6 +44,10 @@ public class BowReleaseScript : MonoBehaviour
         pos_original = arrow.transform.position;
 
         pos_1 = arrow.transform.position.z;
+
+        m_windDirection = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+        
+        m_windStrength = Random.Range(0f, 10f);
     }
 
     // Update is called once per frame
@@ -81,20 +85,30 @@ public class BowReleaseScript : MonoBehaviour
                 GameObject.Find("midstill").transform.RotateAround(arrow.transform.position, new Vector3(1, 0, 0), v_rot * Time.deltaTime);
             }
 
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                transform.position += new Vector3(v_rot*0.5f*Time.deltaTime, 0, 0);
+            }
+
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                transform.position -= new Vector3(v_rot*0.5f*Time.deltaTime, 0, 0);
+            }
+
         }
 
         if (Input.GetKey(KeyCode.Space) && shot < 2)
         {
             shot = 1;
-            stiffness += Time.deltaTime;
-            if((arrow.transform.position + transform.forward * -0.5f * Time.deltaTime * Mathf.Pow(Mathf.Abs(arrow.transform.position.z), stiffness)).z > 0.5f){
-            arrow.transform.position += transform.forward * -0.5f * Time.deltaTime * Mathf.Pow(Mathf.Abs(arrow.transform.position.z), stiffness);
+            stiffness += Mathf.Pow(12f, Time.deltaTime + 1);
+            if((arrow.transform.position + transform.forward * -0.5f * Time.deltaTime * Mathf.Pow(Mathf.Abs(arrow.transform.position.z), Time.deltaTime)).z > 0.5f){
+            arrow.transform.position += transform.forward * -0.5f * Time.deltaTime * Mathf.Pow(Mathf.Abs(arrow.transform.position.z), Time.deltaTime);
             stringUp.SetPosition(1, new Vector3(arrow.transform.position.x, GameObject.Find("midstill").transform.position.y, arrow.transform.position.z-0.75f));
             stringDown.SetPosition(1, new Vector3(arrow.transform.position.x, GameObject.Find("midstill").transform.position.y, arrow.transform.position.z-0.75f));
             } else {
                 arrow.transform.position = new Vector3(arrow.transform.position.x, arrow.transform.position.y, 0.48f);
             }
-            f_stretch += Mathf.Pow(12f, stiffness + 1) * Time.deltaTime;
+            f_stretch += stiffness * Time.deltaTime;
             pos_2 = arrow.transform.position.z;
         }
 
@@ -103,6 +117,8 @@ public class BowReleaseScript : MonoBehaviour
         if (!Input.GetKey(KeyCode.Space) && shot == 1)
         {
             shot = 2;
+            m_windDirection = new Vector3(Random.Range(-3f, 3f), Random.Range(-3f, 3f), Random.Range(-3f, 3f));
+            m_windStrength = Random.Range(0f, 50f);
             if (f_stretch > 2500)
             {
                 f_stretch = 2500;
@@ -127,6 +143,8 @@ public class BowReleaseScript : MonoBehaviour
 
         if(arrow.GetComponent<ArrowMovement>().hit == true){
             Vector3 hit_pos = arrow.transform.position;
+            // m_windDirection = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+            // m_windStrength = Random.Range(0f, 10f);
             hit_rot = new Vector3(arrow.transform.localEulerAngles.x, 0, 0);
             shot = 0;
             f_stretch = 0;
@@ -151,6 +169,8 @@ public class BowReleaseScript : MonoBehaviour
 
         if (arrow.transform.position.z > 20f)
         {
+            // m_windDirection = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+            // m_windStrength = Random.Range(0f, 10f);
             shot = 0;
             f_stretch = 0;
             stiffness = 0;
@@ -168,6 +188,8 @@ public class BowReleaseScript : MonoBehaviour
 
         if (arrow.transform.position.y < -20f)
         {
+            // m_windDirection = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+            // m_windStrength = Random.Range(0f, 10f);
             shot = 0;
             f_stretch = 0;
             stiffness = 0;

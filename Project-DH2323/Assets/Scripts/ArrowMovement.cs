@@ -9,8 +9,9 @@ public class ArrowMovement : MonoBehaviour
 {
     public bool hit = false;
     public GameObject target;
+    public Vector3 m_windDirection;
+    public float m_windStrength;
     public float hit_depth = 0;
-    public Vector3 wind;
     public bool flight = false;
     public float m_mass = 0.018f; //Mass of arrow
     public float m_dim = (5.12f * Mathf.Pow(10, -3)); //Diameter of arrow shaft
@@ -69,7 +70,9 @@ public class ArrowMovement : MonoBehaviour
     {
         if (flight)
         {
-            m_normVelocity = m_velocity / m_velocity.magnitude;
+            m_windStrength = transform.parent.gameObject.GetComponent<BowReleaseScript>().m_windStrength;
+            m_windDirection = transform.parent.gameObject.GetComponent<BowReleaseScript>().m_windDirection;
+            m_normVelocity = (m_velocity - m_windStrength * m_windDirection) / (m_velocity - m_windStrength * m_windDirection).magnitude;
             m_dragForce = m_dragParameters * Mathf.Pow(m_velocity.magnitude, 2) * (-m_normVelocity);
             m_netForce = m_gravityForce + m_dragForce;
             m_velocity += m_netForce / m_mass * Time.fixedDeltaTime; 
